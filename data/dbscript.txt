@@ -1,14 +1,14 @@
 # Database 생성
-mysql -u root –p
-show databases;
-use mysql;
-create database python_db;
-create user 'python'@'%' identified by 'python';
-grant all privileges on python_db.* to 'python'@'%';
+mysql -u root –p //루트 계정으로 접속
+show databases; //데이터베이스 목록이 무엇인지 확인
+use mysql; //mysql이라는 데이터베이스를 사용하겠다
+create database python_db; //시스템 데이터베이스 말고 우리가 사용할 python_db를 만들겠다다
+create user 'python'@'%' identified by 'python'; //python이라는 사용자 계정을을 만들고 python을 패스워드로 하겠다 
+grant all privileges on python_db.* to 'python'@'%'; //python 사용자가 python_db에 접근할 수 있는 모든 권한을 허용용
 flush privileges;
-select user, host from user;
+select user, host from user; //계정 잘 만들어졌는지 확인
 exit;
 
-mysql -u python -p
-show grants for current_user;
+mysql -u python -p //python 계정으로 접속속
+show grants for current_user; //권한 확인
 use python_db;
